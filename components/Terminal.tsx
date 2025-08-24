@@ -3,8 +3,10 @@
 import React from "react";
 import { useState } from "react";
 import ContactLinks from "./ContactLinks"; 
-import ProjectsPage from "@/app/projects/projects";
-
+import ProjectsPage from "@/components/projects";
+import Skills from  "./Skills"; 
+import ServicesPage from  "./Service"; 
+import AboutPage from  "./About";
 export default function Terminal() {
 
   const [lines, setLines] = useState<React.ReactNode[]>([
@@ -19,40 +21,31 @@ export default function Terminal() {
       case "help":
         output = [
           "Supported commands:",
-          "- whoami     → Learn about Din",
-          "- projects   → Explore works",
-          "- storyboard → View the evolution of the stickman",
-          "- motivate   → Get a faceless quote",
-          "- rituals    → Unlock branding secrets",
-          "- contact    → Reach beyond",
-          "- clear      → Clear the console",
+          "* whoami     → Learn about Din",
+          "* projects   → Explore works",
+          "* skills     → Skills / Tech Stack",
+          "* services   → Services I offer",
+          "* unmotivate → Get a random harsh quote",
+          "* expi       → Unlock branding secrets",
+          "* contact    → Reach beyond/ Hire me.",
+          "* clear      → Clear the console",
         ];
         break;
       case "whoami":
-        output = [
-        "Hi, I’m Din",
-        "I’m a passionate developer with a strong focus on building efficient, user-friendly applications.",
-        "I enjoy working across different technologies whether it’s web development, automation, or system design.",
-        "I’m always looking for ways to improve processes through clean code and smart solutions.",
-        "I value continuous learning, problem-solving, and creating tools that make an impact, whether for businesses or individuals. ",
-        "Beyond coding, I enjoy exploring new ideas, experimenting with projects, and growing my skills one challenge at a time."
-                  ,
-        ];
+        output = [<AboutPage key="about" />];
         break;
       case "projects":
         output = ["Visit /projects to explore my works."];
         output = [<ProjectsPage key="projects" />];
         break;
-      case "storyboard":
-        output = [
-          "The stickman evolved into a brand identity representing creativity + minimalism.",
-        ];
+      case "services":
+         output = [<ServicesPage key="services" />];
         break;
-      case "motivate":
-        output = ["Faceless quote: 'The void is where creation begins.'"];
+      case "skills":
+        output = [<Skills key="skill-links" />];;
         break;
-      case "rituals":
-        output = ["Rituals unlocked: simplicity, creativity, persistence."];
+      case "expi":
+        output = ["Work history and achievements."];
         break;
       case "contact":
         // render the separate component (clickable links)
