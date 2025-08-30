@@ -1,14 +1,15 @@
 "use client";
 
-import React from "react";
-import { useState } from "react";
-import ContactLinks from "./ContactLinks"; 
-import ProjectsPage from "@/components/projects";
-import Skills from  "./Skills"; 
-import ServicesPage from  "./Service"; 
-import AboutPage from  "./About";
-export default function Terminal() {
+import React, { useState } from "react";
+import ContactLinks from "./ContactLinks";
+import ProjectsPage from "@/components/Project";
+import Skills from "./Skills";
+import ServicesPage from "./Service";
+import AboutPage from "./AboutPage";
+import QuotesPage from "./QuotesPage";
+import ExperiencesPage from "./Experiences";
 
+export default function Terminal() {
   const [lines, setLines] = useState<React.ReactNode[]>([
     "Welcome to Dev mode. Type 'help' to begin your journey.",
   ]);
@@ -25,9 +26,9 @@ export default function Terminal() {
           "* projects   → Explore works",
           "* skills     → Skills / Tech Stack",
           "* services   → Services I offer",
-          "* unmotivate → Get a random harsh quote",
-          "* expi       → Unlock branding secrets",
-          "* contact    → Reach beyond/ Hire me.",
+          "* qoutes     → Get a random harsh quote",
+          "* expi       → Work history and achievements",
+          "* contact    → Reach beyond / Hire me",
           "* clear      → Clear the console",
         ];
         break;
@@ -35,21 +36,22 @@ export default function Terminal() {
         output = [<AboutPage key="about" />];
         break;
       case "projects":
-        output = ["Visit /projects to explore my works."];
         output = [<ProjectsPage key="projects" />];
         break;
       case "services":
-         output = [<ServicesPage key="services" />];
+        output = [<ServicesPage key="services" />];
         break;
       case "skills":
-        output = [<Skills key="skill-links" />];;
+        output = [<Skills key="skills" />];
+        break;
+      case "qoutes":
+        output = [<QuotesPage key="qoutes" />];
         break;
       case "expi":
-        output = ["Work history and achievements."];
+        output = [<ExperiencesPage key="expi" />];
         break;
       case "contact":
-        // render the separate component (clickable links)
-        output = [<ContactLinks key="contact-links" />];
+        output = [<ContactLinks key="contact" />];
         break;
       case "clear":
         setLines([]);
@@ -60,11 +62,11 @@ export default function Terminal() {
 
     setLines((prev) => [
       ...prev,
-      <span className="text-pink-500 mr-2" style={{ color: "" }} key={`command-${prev.length}`}>
+      <span className="text-pink-500" key={`command-${prev.length}`}>
         din@void:$ {command}
       </span>,
       ...output.map((line, index) => (
-        <div className="pl-3" key={`output-${prev.length + index}`}>
+        <div key={`output-${prev.length + index}`} className="pl-2">
           {line}
         </div>
       )),
@@ -80,43 +82,37 @@ export default function Terminal() {
   };
 
   return (
-    <div className="bg-[#0d0d0d] text-green-400 font-mono p-6 h-screen flex flex-col border-2 border-pink-500 rounded-lg">
-      {/* ASCII Logo + Intro */}
-      <div className="text-center mb-6">
-        <pre className="text-cyan-400 text-sm leading-snug">{String.raw`
+    <div className="bg-[#0d0d0d] text-green-400 font-mono min-h-screen flex flex-col border-2 border-pink-500 rounded-lg p-3 sm:p-6">
+      {/* Logo */}
+      <div className="text-center mb-4 sm:mb-6">
+        <pre className="text-cyan-400 text-xs sm:text-sm leading-snug">{String.raw`
    O
   /|\
   / \
 `}</pre>
-        <h1 className="text-pink-500 text-6xl font-bold tracking-widest">
+        <h1 className="text-pink-500 text-3xl sm:text-6xl font-bold tracking-widest">
           DINVOID
         </h1>
       </div>
 
-      {/* Console Output */}
-      <div className="flex-1 overflow-y-auto space-y-1 pl-3">
+      {/* Output */}
+      <div className="flex-1 overflow-y-auto space-y-1 pl-1 sm:pl-3 text-sm sm:text-base">
         {lines.map((line, i) => (
-          <div key={i} className="whitespace-pre-wrap pl-3">
-           
+          <div key={i} className="whitespace-pre-wrap break-words">
             {line}
-            
           </div>
         ))}
       </div>
 
-      {/* Input Area */}
-      <form onSubmit={handleSubmit} className="mt-2 flex items-center">
-        <span className="text-pink-500 mr-2">din@void:$</span>
+      {/* Input */}
+      <form onSubmit={handleSubmit} className="mt-2 flex items-center gap-1">
+        <span className="text-pink-500 text-sm sm:text-base">din@void:$</span>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-         // className="bg-transparent text-green-400 outline-none flex-1"
-          className="bg-gray-900 text-green-400 outline-none flex-1 px-2 py-1 rounded focus:ring-2 focus:ring-green-500"
-  
+          className="bg-gray-900 text-green-400 outline-none flex-1 px-2 py-1 rounded focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
           autoFocus
-           //placeholder="type help"
         />
-        
       </form>
     </div>
   );

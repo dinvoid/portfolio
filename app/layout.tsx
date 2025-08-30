@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LazyBuddy",
-  description: "feels like a companion that helps you.",
+  title: "Din Void – Developer Portfolio",
+  description: "just being a void.",
 };
 
 export default function RootLayout({

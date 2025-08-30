@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export default function ContactLinks() {
   return (
-    <div className="space-y-1">
+    <div className="bg-gray-900 space-y-2 text-base text-gray-300 p-6">
       <p>
         📄{" "}
         <Link
           href="/resume.pdf"
           target="_blank"
-          className="text-blue-400 hover:underline"
+          className="text-yellow-300 hover:text-emerald-400"
         >
           Resume – Manifest of the Void
         </Link>
@@ -21,20 +21,20 @@ export default function ContactLinks() {
           href="https://github.com/dinvoid"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-400 hover:underline"
+          className="text-yellow-300 hover:text-emerald-400"
         >
-          GitHub – dinvoid
+          GitHub – @din_void
         </a>
       </p>
       <p>
         ▶️{" "}
         <a
-          href="https://youtube.com/@din_void"
+          href="https://linkedin.com/in/eldin-betalmos-2006b4294"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-400 hover:underline"
+          className="text-yellow-300 hover:text-emerald-400"
         >
-          YouTube – @din_void
+          LinkedIn – @din_void
         </a>
       </p>
       <p>
@@ -43,7 +43,7 @@ export default function ContactLinks() {
           href="https://twitter.com/ain_void"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-400 hover:underline"
+          className="text-yellow-300 hover:text-emerald-400"
         >
           Twitter – @din_void
         </a>
@@ -51,10 +51,10 @@ export default function ContactLinks() {
       <p>
         ✉️{" "}
         <a
-          href="mailto:din@void.dev"
-          className="text-blue-400 hover:underline"
+          href="mailto:dincanoybetalmos@gmail.com"
+          className="text-yellow-300 hover:text-emerald-400"
         >
-          Email – din@void.dev
+          Email – @din_void
         </a>
       </p>
     </div>
