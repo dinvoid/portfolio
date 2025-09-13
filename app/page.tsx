@@ -1,119 +1,96 @@
 "use client";
 
-import React, { useState } from "react";
-import ContactLinks from "./ContactLinks";
-import ProjectsPage from "@/components/Project";
-import Skills from "./Skills";
-import ServicesPage from "./Service";
-import AboutPage from "./About";
-import QuotesPage from "./QuotesPage";
-import ExperiencesPage from "./Experiences";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function Terminal() {
-  const [lines, setLines] = useState<React.ReactNode[]>([
-    "Welcome to Dev mode. Type 'help' to begin your journey.",
-  ]);
-  const [input, setInput] = useState("");
+const sections = {
+  about: (
+    <div>
+      <h2 className="text-2xl font-bold text-pink-500 mb-4">👋 About Me</h2>
+      <p className="text-gray-300 leading-relaxed">
+        I’m Din, a passionate developer who enjoys building apps, automating workflows,
+        and learning new technologies. Always curious, always creating. 🚀
+      </p>
+    </div>
+  ),
+  projects: (
+    <div>
+      <h2 className="text-2xl font-bold text-pink-500 mb-4">📂 Projects</h2>
+      <ul className="space-y-2 text-gray-300">
+        <li>🏥 Job Portal – Java, Spring Boot, PostgreSQL</li>
+        <li>💻 Recipe Blog – React.js, MongoDB</li>
+        <li>📊 Group Chat App – JavaFX, Sockets</li>
+        <li>🤖 LazyBuddy – Productivity companion</li>
+      </ul>
+    </div>
+  ),
+  skills: (
+    <div>
+      <h2 className="text-2xl font-bold text-pink-500 mb-4">⚡ Skills</h2>
+      <p className="text-gray-300">
+        Java, Spring Boot, React, Node.js, SQL, MongoDB, Postman, Git, Automation
+      </p>
+    </div>
+  ),
+  services: (
+    <div>
+      <h2 className="text-2xl font-bold text-pink-500 mb-4">🛎 Services</h2>
+      <ul className="space-y-2 text-gray-300">
+        <li>⚙ Automation (Python, VBA, Shell scripting)</li>
+        <li>🌐 Web Development (React, Node.js, FastAPI)</li>
+        <li>💻 Java Backend Systems (Spring Boot)</li>
+        <li>🤖 AI & ML Integrations</li>
+      </ul>
+    </div>
+  ),
+  contact: (
+    <div>
+      <h2 className="text-2xl font-bold text-pink-500 mb-4">📞 Contact</h2>
+      <p className="text-gray-300">📧 dincanoybetalmos@gmail.com</p>
+      <p className="text-gray-300">🐙 github.com/dinvoid</p>
+      <p className="text-gray-300">💼 linkedin.com/in/eldin-betalmos-2006b4294</p>
+    </div>
+  ),
+};
 
-  const handleCommand = (command: string) => {
-    let output: React.ReactNode[] = [];
-
-    switch (command.toLowerCase()) {
-      case "help":
-        output = [
-          "Supported commands:",
-          "* whoami     → Learn about Din",
-          "* projects   → Explore works",
-          "* skills     → Skills / Tech Stack",
-          "* services   → Services I offer",
-          "* qoutes     → Get a random harsh quote",
-          "* expi       → Work history and achievements",
-          "* contact    → Reach beyond / Hire me",
-          "* clear      → Clear the console",
-        ];
-        break;
-      case "whoami":
-        output = [<AboutPage key="about" />];
-        break;
-      case "projects":
-        output = [<ProjectsPage key="projects" />];
-        break;
-      case "services":
-        output = [<ServicesPage key="services" />];
-        break;
-      case "skills":
-        output = [<Skills key="skills" />];
-        break;
-      case "qoutes":
-        output = [<QuotesPage key="qoutes" />];
-        break;
-      case "expi":
-        output = [<ExperiencesPage key="expi" />];
-        break;
-      case "contact":
-        output = [<ContactLinks key="contact" />];
-        break;
-      case "clear":
-        setLines([]);
-        return;
-      default:
-        output = [`Command not found: ${command}`];
-    }
-
-    setLines((prev) => [
-      ...prev,
-      <span className="text-pink-500" key={`command-${prev.length}`}>
-        din@void:$ {command}
-      </span>,
-      ...output.map((line, index) => (
-        <div key={`output-${prev.length + index}`} className="pl-2">
-          {line}
-        </div>
-      )),
-    ]);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (input.trim()) {
-      handleCommand(input.trim());
-      setInput("");
-    }
-  };
+export default function Home() {
+  const [activeTab, setActiveTab] = useState<keyof typeof sections>("about");
+  const router = useRouter();
 
   return (
-    <div className="bg-[#0d0d0d] text-green-400 font-mono min-h-screen flex flex-col border-2 border-pink-500 rounded-lg p-3 sm:p-6">
-      {/* Logo */}
-      <div className="text-center mb-4 sm:mb-6">
-        <pre className="text-cyan-400 text-xs sm:text-sm leading-snug">{String.raw`
-   O
-  /|\
-  / \
-`}</pre>
-        <h1 className="text-pink-500 text-3xl sm:text-6xl font-bold tracking-widest">
-          DINVOID
-        </h1>
-      </div>
+    <div className="flex min-h-screen bg-gray-900 text-gray-100 font-mono">
+      {/* Sidebar */}
+      <aside className="w-64 bg-gray-800 border-r border-gray-700 p-6 flex flex-col">
+        <h1 className="text-2xl font-bold text-pink-500 mb-8">DINVOID</h1>
+        <nav className="space-y-3">
+          {Object.keys(sections).map((key) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key as keyof typeof sections)}
+              className={`w-full text-left px-3 py-2 rounded-lg transition ${
+                activeTab === key
+                  ? "bg-pink-600 text-white"
+                  : "hover:bg-gray-700 text-gray-300"
+              }`}
+            >
+              {key.charAt(0).toUpperCase() + key.slice(1)}
+            </button>
+          ))}
+        </nav>
+        <div className="mt-auto">
+          <button
+            onClick={() => router.push("/developer")}
+            className="w-full mt-6 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-bold"
+          >
+            🚀 Developer Mode
+          </button>
+        </div>
+      </aside>
 
-      {/* Output */}
-      <div className="flex-1 overflow-y-auto space-y-1 pl-1 sm:pl-3 text-sm sm:text-base">
-        {lines.map((line, i) => (
-          <div key={i} className="whitespace-pre-wrap break-words">
-            {line}
-          </div>
-        ))}
-      </div>
-
-      {/* Input */}
-      <form onSubmit={handleSubmit} className="mt-2 flex items-center gap-1">
-        <span className="text-pink-500 text-sm sm:text-base">din@void:$</span>
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="bg-gray-900 text-green-400 outline-none flex-1 px-2 py-1 rounded focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
-          autoFocus
-        />
-      </form>
+      {/* Main Section */}
+      <main className="flex-1 p-10">
+        {sections[activeTab]}
+      </main>
     </div>
   );
 }

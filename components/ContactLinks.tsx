@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ContactLinks() {
   return (
-    <div className="bg-gray-900 space-y-2 text-base text-gray-300 p-6">
+    <div className="bg-gray-900 space-y-2 text-base text-gray-300 p-6 ">
       <p>
         📄{" "}
         <Link

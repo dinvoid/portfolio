@@ -12,6 +12,7 @@ const services = [
   "Process automation & task scripting",
   "Data entry & management",
   "Portrait art & traditional drawings",
+  "Admin Task Management", "Automate(boring works)" 
 ];
 
 export default function Service() {

@@ -23,6 +23,7 @@ export default function ExperiencesPage() {
           <li>Process automation using Batch files & Excel VBA</li>
           <li>L1 Onsite Support for CSRs, tellers, and officers in branches</li>
           <li>Version control & code reviews using GitHub/GitLab</li>
+          <li>Gained experience in Java, Spring Boot, SQL, and Postman APIs</li>
         </ul>
       </div>
 
@@ -38,7 +39,7 @@ export default function ExperiencesPage() {
           <li>Collaborated on Metrobank projects to enhance software performance</li>
           <li>Developed and maintained systems in coordination with database teams</li>
           <li>Provided support in bug fixing and implementation</li>
-          <li>Gained experience in Java, Spring Boot, SQL, and Postman APIs</li>
+          
         </ul>
       </div>
     </div>

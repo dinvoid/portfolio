@@ -4,9 +4,10 @@ import React from "react";
 
 const output = [
   "Hey, I’m Din! 👋",
-  "I’m a developer who loves turning ideas into real, working applications. I enjoy working with different technologies, whether it’s building a website, automating tasks, or designing systems, and I always try to keep my code clean and efficient.",
+  "I’m a developer who loves turning ideas into real, working applications. I enjoy working with different technologies, whether it’s building a website, automating boring tasks, or designing systems, and I always try to keep my code clean and efficient.",
   "",
   "I’m curious by nature, always learning something new, and I love finding smarter ways to solve problems. When I’m not coding, you’ll usually find me experimenting with side projects, exploring new tech, or just tinkering to see what I can create next.",
+  "Outside of coding, I enjoy playing chess and drawing."
 ];
 
 export default function AboutPage() {
