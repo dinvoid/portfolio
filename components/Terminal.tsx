@@ -14,7 +14,7 @@ import FloatingExitButton from "./FloatingButton";
 export default function Terminal() {
   const router = useRouter();
   const [lines, setLines] = useState<React.ReactNode[]>([
-    "Welcome to Dev mode. Type 'help' to begin your journey.",
+    "Welcome to PORTFOLIO. Type 'help' to begin your journey.",
   ]);
   const [input, setInput] = useState("");
 

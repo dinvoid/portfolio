@@ -58,9 +58,9 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="flex min-h-screen bg-gray-900 text-gray-100 font-mono">
-      {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 border-r border-gray-700 p-6 flex flex-col">
+    <div className="flex min-h-screen bg-gray-900 text-gray-100 font-mono flex-col md:flex-row">
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex w-64 bg-gray-800 border-r border-gray-700 p-6 flex-col">
         <h1 className="text-2xl font-bold text-pink-500 mb-8">DINVOID</h1>
         <nav className="space-y-3">
           {Object.keys(sections).map((key) => (
@@ -87,10 +87,25 @@ export default function Home() {
         </div>
       </aside>
 
+      {/* Mobile Top Nav */}
+      <div className="md:hidden bg-gray-800 border-b border-gray-700 p-3 flex gap-2 overflow-x-auto">
+        {Object.keys(sections).map((key) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key as keyof typeof sections)}
+            className={`px-3 py-2 rounded-lg text-sm whitespace-nowrap ${
+              activeTab === key
+                ? "bg-pink-600 text-white"
+                : "hover:bg-gray-700 text-gray-300"
+            }`}
+          >
+            {key.charAt(0).toUpperCase() + key.slice(1)}
+          </button>
+        ))}
+      </div>
+
       {/* Main Section */}
-      <main className="flex-1 p-10">
-        {sections[activeTab]}
-      </main>
+      <main className="flex-1 p-6">{sections[activeTab]}</main>
     </div>
   );
 }
