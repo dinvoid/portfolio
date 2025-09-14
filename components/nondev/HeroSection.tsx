@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import router from "next/router";
 
 export default function HeroSection() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,7 +33,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right: Developer Button */}
-        <button className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition transform hover:-translate-y-1">
+        <button  onClick={() => router.push("/developer")} className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition transform hover:-translate-y-1">
           Developer
         </button>
       </div>
