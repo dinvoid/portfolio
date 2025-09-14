@@ -14,12 +14,13 @@ import FloatingExitButton from "./FloatingButton";
 export default function Terminal() {
   const router = useRouter();
   const [lines, setLines] = useState<React.ReactNode[]>([
-    "Welcome to PORTFOLIO. Type 'help' to begin your journey.",
+    "Welcome to my PORTFOLIO. Type 'help' to begin your journey.",
   ]);
   const [input, setInput] = useState("");
 
   const handleCommand = (command: string) => {
     let output: React.ReactNode[] = [];
+    let newKey = `command-${lines.length}`;
 
     switch (command.toLowerCase()) {
       case "help":
@@ -67,17 +68,22 @@ export default function Terminal() {
         output = [`Command not found: ${command}`];
     }
 
-    setLines((prev) => [
-      ...prev,
-      <span className="text-pink-500" key={`command-${prev.length}`}>
-        din@void:$ {command}
-      </span>,
-      ...output.map((line, index) => (
-        <div key={`output-${prev.length + index}`} className="pl-2">
-          {line}
-        </div>
-      )),
-    ]);
+    // 👇 Create a ref for this command block
+    const ref = React.createRef<HTMLDivElement>();
+
+    const newBlock = (
+      <div key={newKey} ref={ref} className="mb-3">
+        <span className="text-pink-500">din@void:$ {command}</span>
+        <div className="pl-2 mt-1">{output}</div>
+      </div>
+    );
+
+    setLines((prev) => [...prev, newBlock]);
+
+    // 👇 Scroll the block into view (aligned to top)
+    setTimeout(() => {
+      ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -90,7 +96,7 @@ export default function Terminal() {
 
   return (
     <div className="relative bg-[#0d0d0d] text-green-400 font-mono min-h-screen flex flex-col border-2 border-pink-500 rounded-lg p-3 sm:p-6">
-     <FloatingExitButton />
+      <FloatingExitButton />
 
       {/* Logo */}
       <div className="text-center mb-4 sm:mb-6">
@@ -123,7 +129,6 @@ export default function Terminal() {
           autoFocus
         />
       </form>
-
     </div>
   );
 }
