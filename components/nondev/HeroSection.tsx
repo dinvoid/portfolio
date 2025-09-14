@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import router from "next/router";
 
+import { useRouter } from "next/navigation";
 export default function HeroSection() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-50 min-h-screen flex flex-col items-center px-6">
