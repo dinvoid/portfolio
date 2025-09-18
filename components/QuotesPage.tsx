@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function QuotesPage() {
-  const allQuotes: string[] = [
+  const allQuotes=[
     "No one cares about your excuses, they only see the results.",
     "If you quit now, you’ll end up exactly where you started — and that place made you want to change in the first place.",
     "Discipline will take you places motivation never will.",
@@ -54,7 +54,7 @@ export default function QuotesPage() {
       setQuotes(randomQuotes.map((q) => `${q.text} — ${q.author ?? "Unknown"}`));
       setSource("api");
     } catch (error) {
-      setQuotes(["⚠️ Failed to fetch API quotes."]);
+      setQuotes([" Failed to fetch API quotes."]);
     }
   };
 

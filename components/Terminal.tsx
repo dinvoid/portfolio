@@ -10,6 +10,7 @@ import AboutPage from "./AboutPage";
 import QuotesPage from "./QuotesPage";
 import ExperiencesPage from "./Experiences";
 import FloatingExitButton from "./FloatingButton";
+import Help from "./Help";
 
 export default function Terminal() {
   const router = useRouter();
@@ -24,18 +25,7 @@ export default function Terminal() {
 
     switch (command.toLowerCase()) {
       case "help":
-        output = [
-          "Supported commands:",
-          "* whoami     → Learn about Din",
-          "* projects   → Explore works",
-          "* skills     → Skills / Tech Stack",
-          "* services   → Services I offer",
-          "* qoutes     → Get a random harsh quote",
-          "* expi       → Work history and achievements",
-          "* contact    → Reach beyond / Hire me",
-          "* clear      → Clear the console",
-          "* exit       → Leave Developer Mode",
-        ];
+        output = [<Help key="help" />];
         break;
       case "whoami":
         output = [<AboutPage key="about" />];

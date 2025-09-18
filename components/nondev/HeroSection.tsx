@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-
+  
 import { useRouter } from "next/navigation";
 export default function HeroSection() {
   const [menuOpen, setMenuOpen] = useState(false);
