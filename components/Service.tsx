@@ -6,13 +6,14 @@ const services = [
   "Java development (Spring Boot, Core Java projects)",
   "Instagram, Twitter(X), Facebook content creation & management",
   "AI & Machine Learning solutions",
-  "Discord bots & automation",
+  "Discord bots & automation(n8n)",
   "Enterprise systems & backend solutions",
   "Database management & optimization",
   "Process automation & task scripting",
   "Data entry & management",
   "Portrait art & traditional drawings",
-  "Admin Task Management", "Automate(boring works)" 
+  "Admin Task Management", "Automate(boring works)" ,
+  "Email Marketing(Klaviyo,Mailchimp)"
 ];
 
 export default function Service() {
