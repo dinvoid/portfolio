@@ -75,7 +75,7 @@
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl font-extrabold text-gray-900 leading-tight">
-                Hello, I'm <span className="text-blue-600">Eldin</span>
+                Hello, I&apos;m <span className="text-blue-600">Eldin</span>
               </h1>
               <p className="text-xl text-gray-700 font-light">
                 Backend Developer focused on scalable systems, clean architecture, and performance.
@@ -114,7 +114,7 @@
                 I&apos;m always learning, collaborating, and pushing boundaries to build systems that make a real impact.
               </p>
               <p>
-                I build systems that scale with or without AI. But let’s be honest that those who use it are playing a smarter game.
+                I build systems that scale with or without AI. But let&apos;s be honest that those who use it are playing a smarter game.
               </p>
             </div>
           </div>

@@ -44,7 +44,7 @@ export default function Contact() {
     <section className="bg-gradient-to-br from-blue-100 via-white to-blue-100 py-20 px-6" id="contact">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="font-extra font-bold text-4xl font-bold text-blue-600 mb-12 text-center">
-        🤝 Let’s Connect
+        🤝 Let&apos;s Connect
         </h2>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
           Have a project in mind or just want to say hi? I’d love to hear from you!
@@ -81,7 +81,7 @@ export default function Contact() {
           onClick={() => setShowModal(true)}
           className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition font-medium"
         >
-          Let's talk
+          Let&apos;s talk
         </button>
 
         {/* Modal */}
