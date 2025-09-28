@@ -9,7 +9,7 @@ import ServicesPage from "./Service";
 import AboutPage from "./AboutPage";
 import QuotesPage from "./QuotesPage";
 import ExperiencesPage from "./Experiences";
-import FloatingExitButton from "./FloatingButton";
+
 import Help from "./Help";
 
 export default function Terminal() {
@@ -21,7 +21,7 @@ export default function Terminal() {
 
   const handleCommand = (command: string) => {
     let output: React.ReactNode[] = [];
-    let newKey = `command-${lines.length}`;
+    const newKey = `command-${lines.length}`;
 
     switch (command.toLowerCase()) {
       case "help":
@@ -86,7 +86,6 @@ export default function Terminal() {
 
   return (
     <div className="relative bg-[#0d0d0d] text-green-400 font-mono min-h-screen flex flex-col border-2 border-pink-500 rounded-lg p-3 sm:p-6">
-      <FloatingExitButton />
 
       {/* Logo */}
       <div className="text-center mb-4 sm:mb-6">

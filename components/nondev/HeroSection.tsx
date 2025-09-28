@@ -104,19 +104,18 @@
             <div id="abouts" className="mt-8 scroll-mt-24 space-y-4 text-gray-700 text-base leading-relaxed">
 
               <p>
-                I'm a backend developer focused on building fast, secure, and maintainable APIs. I actively integrate AI tools into my workflow to automate boring tasks, streamline development.
+                I&apos;m a backend developer focused on building fast, secure, and maintainable APIs. I actively integrate AI tools into my workflow to automate boring tasks, streamline development.
               </p>
-              <p>I'm passionate about optimizing workflows through automation and problem-solving.</p>
+              <p>I&apos;m passionate about optimizing workflows through automation and problem-solving.</p>
               <p>
                 I care deeply about clean code, modular architecture, and delivering seamless user experiences. Outside of work, I enjoy playing chess, drawing and sketching, and sipping good coffee ☕.
               </p>
               <p>
-                I'm always learning, collaborating, and pushing boundaries to build systems that make a real impact.
+                I&apos;m always learning, collaborating, and pushing boundaries to build systems that make a real impact.
               </p>
               <p>
                 I build systems that scale with or without AI. But let’s be honest that those who use it are playing a smarter game.
               </p>
-
             </div>
           </div>
 

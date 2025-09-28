@@ -41,7 +41,7 @@ export default function ProjectSection() {
               <h3 className="text-2xl font-semibold text-blue-600 mb-2">{project.title}</h3>
               <p className="text-gray-700 mb-4">{project.description}</p>
               <a
-                href={project.link}
+                href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-4 py-2 bg-gray-900 text-white rounded hover:bg-blue-700 transition"

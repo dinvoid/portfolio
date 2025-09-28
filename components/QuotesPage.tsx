@@ -54,6 +54,7 @@ export default function QuotesPage() {
       setQuotes(randomQuotes.map((q) => `${q.text} — ${q.author ?? "Unknown"}`));
       setSource("api");
     } catch (error) {
+      console.error("Error fetching quotes:", error);
       setQuotes([" Failed to fetch API quotes."]);
     }
   };

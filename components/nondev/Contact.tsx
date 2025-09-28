@@ -101,7 +101,7 @@ export default function Contact() {
                 transition={{ duration: 0.2 }}
               >
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  Let’s Work Together
+                  Let&apos;s Work Together
                 </h3>
 
                 {success ? (
