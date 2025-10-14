@@ -113,11 +113,11 @@ export default function Terminal() {
   onSubmit={handleSubmit}
   className="sticky bottom-0 bg-[#0d0d0d] flex items-center gap-1 pt-2 pb-3"
 >
-  <span className="text-pink-500 text-sm sm:text-base">din@void:$</span>
+  <span className="text-pink-500 text-sm sm:text-base">din:$</span>
   <input
     value={input}
     onChange={(e) => setInput(e.target.value)}
-    placeholder="Type a command (e.g., help) and press Enter/Return"
+    placeholder="Type a command and press Enter/Return"
     className="bg-gray-900 text-green-400 outline-none flex-1 px-2 py-1 rounded focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
     autoFocus
   />
