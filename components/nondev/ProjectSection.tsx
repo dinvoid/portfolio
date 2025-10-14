@@ -11,7 +11,7 @@ const projects = [
       title: "💻 Recipe Blog",
       description: "Recipe blog that allows users to create and share recipes with a community.",
       url: "https://github.com/dinvoid/recipe-blog",
-      stack: ["React.js", "CSS", "Vercel", "MongoDB", "Passport.js"],
+      stack: ["React.js", "CSS", "Vercel", "MongoDB", "Passport.js","Node.js","Express.js"],
     },
     {
       title: "📊 GroupChatApp",

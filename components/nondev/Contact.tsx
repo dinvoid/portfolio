@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { sendEmail } from "@/lib/sendEmail";
 import confetti from "canvas-confetti";
 import { motion, AnimatePresence } from "framer-motion";
-import { Linkedin, Github, Mail } from "lucide-react";
+import { Linkedin, Github, Mail, ArrowUp } from "lucide-react";
 
 export default function Contact() {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [showTopBtn, setShowTopBtn] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,14 +41,29 @@ export default function Contact() {
     }
   };
 
+  // Show "Back to Top" button when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) setShowTopBtn(true);
+      else setShowTopBtn(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Smooth scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <section className="bg-gradient-to-br from-blue-100 via-white to-blue-100 py-20 px-6" id="contact">
+    <section className="bg-gradient-to-br from-blue-100 via-white to-blue-100 py-20 px-6 relative" id="contact">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="font-extra font-bold text-4xl font-bold text-blue-600 mb-12 text-center">
-        🤝 Let&apos;s Connect
+          🤝 Let&apos;s Connect
         </h2>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          Have a project in mind or just want to say hi? I’d love to hear from you!
+          Have a project in mind or just want to say hi? I&apos;d love to hear from you!
         </p>
 
         {/* Social Links */}
@@ -69,7 +85,7 @@ export default function Contact() {
             <Linkedin size={28} />
           </a>
           <a
-            href="mailto:eldinbetw@gmail.com.com"
+            href="mailto:dincanoybetalmos@gmail.com"
             className="text-gray-700 hover:text-indigo-600 transition"
           >
             <Mail size={28} />
@@ -88,7 +104,7 @@ export default function Contact() {
         <AnimatePresence>
           {showModal && (
             <motion.div
-              className="fixed inset-0 bg-red/40 backdrop-blur-sm flex items-center justify-center z-50"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -117,7 +133,6 @@ export default function Contact() {
                       className="w-full border border-gray-300 p-3 rounded-lg bg-white text-black placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 outline-none"
                       required
                     />
-
                     <input
                       type="email"
                       name="user_email"
@@ -125,7 +140,6 @@ export default function Contact() {
                       className="w-full border border-gray-300 p-3 rounded-lg bg-white text-black placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 outline-none"
                       required
                     />
-
                     <textarea
                       name="message"
                       placeholder="Project Details..."
@@ -134,7 +148,6 @@ export default function Contact() {
                       rows={4}
                       required
                     />
-
                     <button
                       type="submit"
                       disabled={loading}
@@ -157,6 +170,21 @@ export default function Contact() {
         </AnimatePresence>
       </div>
 
+      {/* 🔝 Back to Top Button */}
+      <AnimatePresence>
+        {showTopBtn && (
+          <motion.button
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition z-50"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 30 }}
+            title="Back to Top"
+          >
+            <ArrowUp size={22} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
