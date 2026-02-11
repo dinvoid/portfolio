@@ -4,7 +4,7 @@ const projects = [
     {
       title: "🏥 Job Portal",
       description: "A job portal where employers search CVs instead of candidates applying for jobs.",
-      url: "https://github.com/dinvoid/job-portal",
+      url: "https://github.com/dinvoid/spring_security_postrgeSQL",
       stack: ["Java", "Spring Boot", "PostgreSQL", "Hibernate", "Spring Security"],
     },
     {
