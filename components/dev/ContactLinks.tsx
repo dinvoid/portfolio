@@ -8,7 +8,7 @@ export default function ContactLinks() {
       <p>
         📄{" "}
         <Link
-          href="/resume.pdf"
+          href="/Eldin-Betalmos-resume.pdf"
           target="_blank"
           className="text-yellow-300 hover:text-emerald-400"
         >

@@ -91,7 +91,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex gap-4 flex-wrap">
             <a
-              href="/EldinCV.pdf"
+              href="/Eldin-Betalmos-resume.pdf"
               download
               className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition transform hover:-translate-y-1"
             >
