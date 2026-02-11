@@ -3,7 +3,7 @@
 const projects = [
     {
       title: "🏥 Job Portal",
-      description: "A job portal where employers search CVs instead of candidates applying for jobs.",
+      description: "A backend-only RESTful job portal system built with Spring Boot and PostgreSQL, designed for employer-driven candidate discovery and profile management.",
       url: "https://github.com/dinvoid/spring_security_postrgeSQL",
       stack: ["Java", "Spring Boot", "PostgreSQL", "Hibernate", "Spring Security"],
     },
@@ -20,10 +20,10 @@ const projects = [
       stack: ["Java", "JavaFX", "Threads", "Sockets"],
     },
     {
-      title: "🤖 LazyBuddy",
-      description: "Feels like a companion that helps you.",
-      url: "https://github.com/dinvoid/lazy-buddy",
-      stack: ["Java", "Spring Boot", "PostgreSQL", "Hibernate", "Spring Security"],
+      title: "🤖 Automated Appointment Reminder System",
+      description: "Clinic appointment reminder system that sends automated reminders to patients.",
+      url: "https://github.com/dinvoid/clinic-reminder-backend",
+      stack: ["Python", "Fastapi", "PostgreSQL", "APScheduler"],
     },
   ];
 export default function ProjectSection() {
